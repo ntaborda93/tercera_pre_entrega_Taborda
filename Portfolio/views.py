@@ -33,3 +33,9 @@ def listar_transito(request):
         template_name='Portfolio/lista_transito.html',
         context=contexto,
     )
+
+def contacto(request):
+    return render(
+        request=request,
+        template_name='Portfolio/contacto.html',
+    )
