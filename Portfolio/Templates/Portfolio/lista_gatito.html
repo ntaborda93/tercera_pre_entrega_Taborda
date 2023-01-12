@@ -1,0 +1,14 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>Busqueda</title>
+{%endblock titulo %}
+
+{% block contenido %}
+<h1>Gatitos en busqueda de hogar</h1>
+<ul>
+{% for cat in gatos %}
+  <li>{{ cat.nombre }}, {{ cat.genero }}, {{ cat.color_pelaje }}</li>
+{% endfor %}
+</ul>
+{% endblock contenido %}

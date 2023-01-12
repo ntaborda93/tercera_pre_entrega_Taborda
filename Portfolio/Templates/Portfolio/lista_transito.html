@@ -1,0 +1,14 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>Transito</title>
+{%endblock titulo %}
+
+{% block contenido %}
+<h1>Transitos</h1>
+<ul>
+{% for transit in transito %}
+  <li>{{ transit.nombre }}, {{ transit.localidad }}</li>
+{% endfor %}
+</ul>
+{% endblock contenido %}
