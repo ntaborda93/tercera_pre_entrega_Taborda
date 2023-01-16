@@ -52,3 +52,16 @@ def crear_transito(request):
             request=request,   
             template_name='Portfolio/formulario_transito.html'
             )
+
+def buscar_transito(request):
+    if request.method == "POST":
+        data = request.POST
+        Transitos = transito.objects.filter(nombre__contains=data['busqueda'])
+        contexto = {
+            'transito': Transitos
+        }
+        return render(
+            request=request,
+            template_name='Portfolio/lista_transito.html',
+            context=contexto,
+        )

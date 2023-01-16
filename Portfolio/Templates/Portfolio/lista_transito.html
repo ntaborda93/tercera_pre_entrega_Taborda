@@ -6,6 +6,14 @@
 
 {% block contenido %}
 <h1>Transitos disponibles</h1>
+
+<form action="{% url 'buscar_transito' %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar">
+</form>
+<br>
+
 <ul>
 {% for transit in transito %}
   <li>{{ transit.nombre }}, {{ transit.localidad }}</li>
