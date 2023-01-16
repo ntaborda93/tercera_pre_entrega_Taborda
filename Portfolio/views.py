@@ -39,3 +39,6 @@ def contacto(request):
         request=request,
         template_name='Portfolio/contacto.html',
     )
+
+def transitoFormulario (request):
+    return render (request, "Portfolio/Formulario_transito.html")

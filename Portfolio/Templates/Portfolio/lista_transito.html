@@ -11,4 +11,19 @@
   <li>{{ transit.nombre }}, {{ transit.localidad }}</li>
 {% endfor %}
 </ul>
+<br>
+<br>
+<h1>Unite al equipo!</h1>
+<form action="/Formulario_transito/" method="POST">
+  {% csrf_token %}
+  <p>Nombre:</p>
+  <input type="text" name="nombre_transito">
+  <p>Apellido:</p>
+  <input type="text" name="apellido_transito">
+  <p>Email:</p>
+  <input type="Email" name="email_transito">
+  <br>
+  <br>
+  <input type="submit" value="Enviar Informacion">
+</form>
 {% endblock contenido %}
