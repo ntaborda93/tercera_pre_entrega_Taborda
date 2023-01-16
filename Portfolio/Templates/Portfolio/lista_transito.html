@@ -5,25 +5,11 @@
 {%endblock titulo %}
 
 {% block contenido %}
-<h1>Transitos</h1>
+<h1>Transitos disponibles</h1>
 <ul>
 {% for transit in transito %}
   <li>{{ transit.nombre }}, {{ transit.localidad }}</li>
 {% endfor %}
 </ul>
-<br>
-<br>
-<h1>Unite al equipo!</h1>
-<form action="/Formulario_transito/" method="POST">
-  {% csrf_token %}
-  <p>Nombre:</p>
-  <input type="text" name="nombre_transito">
-  <p>Apellido:</p>
-  <input type="text" name="apellido_transito">
-  <p>Email:</p>
-  <input type="Email" name="email_transito">
-  <br>
-  <br>
-  <input type="submit" value="Enviar Informacion">
-</form>
+<a href="{%url "crear_transitos" %}"><h5>Unite a los transitos!</h5></a>
 {% endblock contenido %}

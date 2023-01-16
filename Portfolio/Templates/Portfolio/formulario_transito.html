@@ -1,0 +1,38 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>Unite al equipo!</title>
+{%endblock titulo %}
+
+{% block contenido %}
+<h1>Unite!</h1>
+<form action="{% url 'crear_transitos' %}" method="POST">
+  {% csrf_token %}
+  <p>Nombre:</p>
+  <input type="text" name="nombre_transito">
+  <p>Apellido:</p>
+  <input type="text" name="apellido_transito">
+  <p>Email:</p>
+  <input type="Email" name="email_transito">
+  <p>Provincia:</p>
+  <input type="text" name="provincia_transito">
+  <p>Localidad:</p>
+  <input type="text" name="localidad_transito">
+  <p>Codigo Postal:</p>
+  <input type="number" name="cp_transito">
+  <br>
+  <br>
+  <label>Tenes el gatito?</label>
+  <br>
+  <input type="radio" name="posecion_transito" value="True"><label> Si, tengo el gatito</label>
+  <br>
+  <input type="radio" name="posecion_transito" value="False"><label> No tengo el gatito</label>
+  <br>
+  <br>
+  <p>Bio:</p>
+  <input type="text" name="bio_transito">
+  <br>
+  <br>
+  <input type="submit" value="Enviar Informacion">
+</form>
+{% endblock contenido %}

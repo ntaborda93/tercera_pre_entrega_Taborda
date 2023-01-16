@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 
 from Portfolio.models import Gato, transito
@@ -40,5 +41,14 @@ def contacto(request):
         template_name='Portfolio/contacto.html',
     )
 
-def transitoFormulario (request):
-    return render (request, "Portfolio/Formulario_transito.html")
+def crear_transito(request):
+    if request.method=="POST":
+        data=request.POST
+        Transito=transito(nombre=data["nombre_transito"],apellido=data["apellido_transito"],email=data["email_transito"],provincia=data["provincia_transito"],localidad=data["localidad_transito"],codigo_postal=data["cp_transito"],posecion=data["posecion_transito"],bio=data["bio_transito"])
+        Transito.save()
+        return redirect(reverse("listar_transitos"))
+    else:
+        return render (
+            request=request,   
+            template_name='Portfolio/formulario_transito.html'
+            )

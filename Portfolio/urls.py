@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib import admin
 
-from Portfolio.views import Inicio, listar_gato, listar_transito,contacto,transitoFormulario
+from Portfolio.views import (Inicio, listar_gato, listar_transito,contacto,crear_transito)
 
 
 urlpatterns = [
@@ -10,5 +10,5 @@ urlpatterns = [
     path('transitos/', listar_transito, name="listar_transitos"),
     path('contactanos/', contacto, name="contacto"),
     path('admin/', admin.site.urls),
-    path('Form_transito/',transitoFormulario, name="Formulario_transito")
+    path('form-transito/',crear_transito, name="crear_transitos")
 ]
