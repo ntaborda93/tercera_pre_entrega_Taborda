@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse
 
-from Portfolio.models import Gato, transito
+from Portfolio.models import Gato, transito, adopcion
 
 def Inicio(request):
     return render(
@@ -76,3 +76,21 @@ def crear_gato(request):
             request=request,   
             template_name='Portfolio/formulario_gato.html'
             )
+
+def crear_adopcion(request):
+    if request.method=="POST":
+        data=request.POST
+        adop=adopcion(nombre=data["nombre_adopta"],apellido=data["apellido_adopta"],email=data["email_adopta"],provincia=data["provincia_adopta"],localidad=data["localidad_adopta"],tipo_vivienda=data["vivienda_adopta"])
+        adop.save()
+        return redirect(reverse("gracias"))
+    else:
+        return render (
+            request=request,   
+            template_name='Portfolio/formulario_adopta.html'
+            )
+
+def Gracias(request):
+    return render(
+        request=request,
+        template_name='Portfolio/Gracias.html',
+    )

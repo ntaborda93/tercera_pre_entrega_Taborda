@@ -1,0 +1,28 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>Gatitos en busqueda de hogar</title>
+{%endblock titulo %}
+
+{% block contenido %}
+<h1>Adopta</h1>
+<form action="{% url 'crear_adopta' %}" method="POST">
+    {% csrf_token %}
+    <p>Nombre:</p>
+    <input type="text" name="nombre_adopta">
+    <p>Apellido:</p>
+    <input type="text" name="apellido_adopta">
+    <p>Email:</p>
+    <input type="Email" name="email_adopta">
+    <p>Provincia:</p>
+    <input type="text" name="provincia_adopta">
+    <p>Localidad:</p>
+    <input type="text" name="localidad_adopta">
+    <p>Tipo de vivienda:</p>
+    <input type="text" name="vivienda_adopta">
+    <br>
+    <br>
+    <input type="submit" value="Enviar" />
+</form>
+{% endblock contenido %}
+

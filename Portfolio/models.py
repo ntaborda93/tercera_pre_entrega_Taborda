@@ -30,4 +30,3 @@ class adopcion(models.Model):
     provincia = models.CharField(max_length=256)
     localidad = models.CharField(max_length=256)
     tipo_vivienda = models.CharField(max_length=256)
-    cantidad_mascotas = models.IntegerField()
