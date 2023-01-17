@@ -16,12 +16,9 @@ Los usuarios pueden realizar las siguientes accciones:
 - Adoptar
 - Visualizar gatitos que buscan hogar
 - Visualizar transiters
-
-A futuro:
-- Un usuario administrador podra:
-- Editar el perfil de Usuario
-- Cambiar la contraseña de Usuario
-- Dar de alta gatos en busqueda de hogar
+- Buscar transiters
+- Dar de alta gatitos
+- Dar de alta formulario de adopcion
 - Dar de alta transiters
 
 
