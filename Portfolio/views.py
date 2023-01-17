@@ -6,7 +6,6 @@ from django.http import HttpResponse
 
 from Portfolio.models import Gato, transito
 
-
 def Inicio(request):
     return render(
         request=request,
@@ -65,3 +64,15 @@ def buscar_transito(request):
             template_name='Portfolio/lista_transito.html',
             context=contexto,
         )
+
+def crear_gato(request):
+    if request.method=="POST":
+        data=request.POST
+        gato=Gato(nombre=data["nombre_gato"],color_de_ojos=data["color_de_ojos_gato"],color_pelaje=data["color_pelaje_gato"],genero=data["genero_gato"])
+        gato.save()
+        return redirect(reverse("listar_gatos"))
+    else:
+        return render (
+            request=request,   
+            template_name='Portfolio/formulario_gato.html'
+            )

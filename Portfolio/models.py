@@ -3,7 +3,6 @@ from django.db import models
 class Gato(models.Model):
     nombre = models.CharField(max_length=64)
     color_de_ojos = models.CharField(max_length=64)
-    fecha_aprox_nacimiento = models.DateField(null=True)
     color_pelaje =  models.CharField(max_length=64)
     genero = models.CharField(max_length=64)
 
@@ -32,8 +31,3 @@ class adopcion(models.Model):
     localidad = models.CharField(max_length=256)
     tipo_vivienda = models.CharField(max_length=256)
     cantidad_mascotas = models.IntegerField()
-
-class entrega(models.Model):
-    nombre = models.CharField(max_length=256)
-    fecha_entrega = models.DateTimeField()
-    esta_aprobado = models.BooleanField(default=False)

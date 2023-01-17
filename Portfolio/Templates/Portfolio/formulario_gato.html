@@ -1,0 +1,25 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>Gatitos en busqueda de hogar</title>
+{%endblock titulo %}
+
+{% block contenido %}
+<h1>Postear michi</h1>
+<form action="{% url 'crear_gatos' %}" method="POST">
+    {% csrf_token %}
+    <p>Nombre:</p>
+    <input type="text" name="nombre_gato">
+    <p>Color de ojos:</p>
+    <input type="text" name="color_de_ojos_gato">
+    <br>
+    <p>Color de pelo:</p>
+    <input type="text" name="color_pelaje_gato">
+    <p>Sexo:</p>
+    <input type="text" name="genero_gato">
+    <br>
+    <br>
+    <input type="submit" value="Enviar" />
+</form>
+{% endblock contenido %}
+
