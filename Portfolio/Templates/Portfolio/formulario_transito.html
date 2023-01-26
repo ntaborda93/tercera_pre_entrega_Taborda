@@ -6,7 +6,11 @@
 
 {% block contenido %}
 <h1>Unite!</h1>
-<form action="{% url 'crear_transitos' %}" method="POST">
+{%if es_update%}
+  <form action="{% url 'editar_transitos' transit.id %}" method="POST">
+{% else %}
+  <form action="{% url 'crear_transitos' %}" method="POST">
+{% endif %}
   {% csrf_token %}
   <p>Nombre:</p>
   <input type="text" name="nombre_transito">

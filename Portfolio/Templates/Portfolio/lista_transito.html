@@ -14,10 +14,24 @@
 </form>
 <br>
 
-<ul>
-{% for transit in transito %}
-  <li>{{ transit.nombre }}, {{ transit.localidad }}</li>
-{% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Nombre</th>
+      <th>Ver</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    {% for transit in transito %}
+    <tr>
+      <td>{{ transit.nombre }}</td>
+      <td><a href="{%url 'ver_transitos' transit.id %}">Ver</a></td>
+      <td><a href="{%url 'editar_transitos' transit.id %}">Editar</a></td>
+      <td>Eliminar</td>
+    </tr> 
+    {% endfor %} 
+  </tbody>
+</table>
+
 <a href="{%url "crear_transitos" %}"><h5>Unite a los transitos!</h5></a>
 {% endblock contenido %}

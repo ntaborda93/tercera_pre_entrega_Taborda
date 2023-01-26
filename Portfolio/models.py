@@ -19,6 +19,7 @@ class transito(models.Model):
     codigo_postal = models.IntegerField()
     posecion = models.BooleanField()
     bio = models.TextField(null=True)
+    
 
     def __str__(self):
         return f"{self.apellido}, {self.nombre}"
@@ -30,3 +31,4 @@ class adopcion(models.Model):
     provincia = models.CharField(max_length=256)
     localidad = models.CharField(max_length=256)
     tipo_vivienda = models.CharField(max_length=256)
+    

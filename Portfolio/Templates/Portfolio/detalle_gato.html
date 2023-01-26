@@ -1,0 +1,19 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>detalle-gato</title>
+{%endblock titulo %}
+
+{% block contenido %}
+
+<h2>{{ gatito.nombre }}</h2>
+<span><b>Color de ojos:</b>  {{ gatito.color_de_ojos }}</span>
+<br>
+<span><b>Color de pelo:</b>  {{ gatito.color_pelaje }}</span>
+<br>
+<span><b>Genero:</b> {{ gatito.genero }}</span>
+<br>
+<br>
+<a href="{%url "listar_gatos" %}">Volver</a> 
+
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends "Portfolio/Base.html" %}
+
+{%block titulo %}
+<title>detalle-transito</title>
+{%endblock titulo %}
+
+{% block contenido %}
+
+<h2>{{ transitos.nombre }}</h2>
+<span><b>Apellido:</b>  {{ transitos.apellido }}</span>
+<br>
+<span><b>Email:</b>  {{ transitos.email }}</span>
+<br>
+<span><b>Provincia:</b>  {{ transitos.provincia }}</span>
+<br>
+<span><b>Localidad:</b>  {{ transitos.localidad }}</span>
+<br>
+<span><b>Codigo Postal:</b>  {{ transitos.codigo_postal }}</span>
+<br>
+<span><b>Bio:</b>  {{ transitos.bio }}</span>
+<br>
+<br>
+<a href="{%url "listar_transitos" %}">Volver</a> 
+
+{% endblock contenido %}

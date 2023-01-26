@@ -23,6 +23,16 @@ def listar_gato(request):
         context=contexto,
     )
 
+def ver_gato(request,id):
+    gatito=Gato.objects.get(id=id)
+    contexto = {
+        'gatito': gatito
+    }
+    return render(
+        request=request,
+        template_name='Portfolio/detalle_gato.html',
+        context=contexto,
+    )
 
 def listar_transito(request):
     contexto = {
@@ -31,6 +41,16 @@ def listar_transito(request):
     return render(
         request=request,
         template_name='Portfolio/lista_transito.html',
+        context=contexto,
+    )
+def ver_transito(request,id):
+    transitos=transito.objects.get(id=id)
+    contexto = {
+        'transitos': transitos
+    }
+    return render(
+        request=request,
+        template_name='Portfolio/detalle_transito.html',
         context=contexto,
     )
 
@@ -50,6 +70,30 @@ def crear_transito(request):
         return render (
             request=request,   
             template_name='Portfolio/formulario_transito.html'
+            )
+
+def editar_transito(request, id):
+       if request.method=="POST":
+        data=request.POST
+        Transito=transito(nombre=data["nombre_transito"],apellido=data["apellido_transito"],email=data["email_transito"],provincia=data["provincia_transito"],localidad=data["localidad_transito"],codigo_postal=data["cp_transito"],posecion=data["posecion_transito"],bio=data["bio_transito"])
+        Transito.save()
+        return redirect(reverse("listar_transitos"))
+       else:
+            inicial={
+                "nombre_transito":transito.nombre,
+                "apellido_transito":transito.apellido,
+                "email_transito":transito.email,
+                "provincia_transito":transito.provincia,
+                "localidad_transito":transito.localidad,
+                "cp_transito":transito.codigo_postal,
+                "posecion_transito":transito.posecion,
+                "bio_transito":transito.bio,
+            }
+            formulario=Transito.id(initial=inicial)
+            return render (
+            request=request,   
+            template_name='Portfolio/formulario_transito.html',
+            context={"formulario":formulario,"es_update":True},
             )
 
 def buscar_transito(request):
